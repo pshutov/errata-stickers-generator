@@ -199,3 +199,7 @@
 | 14:24 | Edited .claude/rules/openwolf.md | 1→4 lines | ~217 |
 | 14:24 | Edited .gitignore | expanded (+8 lines) | ~77 |
 | 14:25 | Edited .claude/rules/openwolf.md | inline fix | ~51 |
+| 20:00 | Harden .wolf privacy: gitignore+untrack runtime-state files leaking home paths; add privacy rules; commit 10 screenshots | .gitignore, .claude/rules/openwolf.md, .wolf/cerebrum.md, docs/screenshots/ | pushed; tracked tree clean of home paths | ~4k |
+| 14:26 | Session end: 26 writes across 14 files (lucky-hatching-catmull.md, types.ts, pack.ts, generate.ts, RegionInspector.tsx) | 19 reads | ~30802 tok |
+| 14:32 | Edited README.md | 32→28 lines | ~333 |
+| 14:32 | Edited README.md | 3→2 lines | ~54 |

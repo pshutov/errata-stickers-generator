@@ -29,38 +29,34 @@ PDFs are never uploaded anywhere.
 
 ## Screenshots
 
-> Images live in [`docs/screenshots/`](docs/screenshots/). Replace the placeholders below with real
-> captures (see the table for what each one should show).
+> Screenshots live in [`docs/screenshots/`](docs/screenshots/).
 
 ### 1. Upload — drag & drop your PDFs
-![Upload](docs/screenshots/01-upload.png)
+<img alt="Upload" src="docs/screenshots/01-upload.png" width="50%" />
 
 ### 2. Mark a region on the page
-![Mark region](docs/screenshots/02-mark-region.png)
+<img alt="Mark region" src="docs/screenshots/02-mark-region.png" width="50%" />
 
 ### 3. Region inspector — scale, copies & per-region margin
-![Region inspector](docs/screenshots/03-region-inspector.png)
+<img alt="Region inspector" src="docs/screenshots/03-region-inspector.png" width="50%" />
 
 ### 4. Region tree — navigate, duplicate, delete
-![Region tree](docs/screenshots/04-region-tree.png)
+<img alt="Region tree" src="docs/screenshots/04-region-tree.png" width="50%" />
 
 ### 5. Sheet settings — format, margin, gap, bleed, crop marks
-![Sheet settings](docs/screenshots/05-sheet-settings.png)
+<img alt="Sheet settings" src="docs/screenshots/05-sheet-settings.png" width="50%" />
 
 ### 6. Packing variants — ranked by sheets & efficiency
-![Variants](docs/screenshots/06-variants.png)
-
-### 7. Result preview — the packed sheet
-![Result preview](docs/screenshots/07-result-preview.png)
+<img alt="Variants" src="docs/screenshots/06-variants.png" width="50%" />
 
 ### 8. Export — raster or vector
-![Download modal](docs/screenshots/08-download-modal.png)
+<img alt="Download modal" src="docs/screenshots/08-download-modal.png" width="50%" />
 
 ### 9. Load project — attach PDFs with hash verification
-![Load dialog](docs/screenshots/09-load-dialog.png)
+<img alt="Load dialog" src="docs/screenshots/09-load-dialog.png" width="50%" />
 
 ### 10. Print-ready output — bleed & crop marks
-![Crop marks output](docs/screenshots/10-output-crop-marks.png)
+<img alt="Crop marks output" src="docs/screenshots/10-output-crop-marks.png" width="50%" />
 
 ---
 
@@ -74,7 +70,6 @@ PDFs are never uploaded anywhere.
 | 4 | `docs/screenshots/04-region-tree.png` | The Document → Page → Region tree with a `×N` copies badge and the duplicate/delete actions. |
 | 5 | `docs/screenshots/05-sheet-settings.png` | Sheet panel: format & orientation, Margin/Gap/Bleed inputs, crop-marks toggle on. |
 | 6 | `docs/screenshots/06-variants.png` | The variants list — several layouts with sheet count and efficiency %. |
-| 7 | `docs/screenshots/07-result-preview.png` | A packed sheet preview showing tightly nested stickers (incl. a rotated one). |
 | 8 | `docs/screenshots/08-download-modal.png` | The Raster / Vector download modal. |
 | 9 | `docs/screenshots/09-load-dialog.png` | The load dialog with PDFs attached — one **Match** (green) and one **Hash differs** (amber). |
 | 10 | `docs/screenshots/10-output-crop-marks.png` | The generated PDF opened in a viewer, showing bleed and crop marks around a sticker. |
