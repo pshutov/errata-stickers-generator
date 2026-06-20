@@ -2,3 +2,11 @@ node_modules/
 dist/
 *.local
 .DS_Store
+
+# OpenWolf machine-generated runtime state (contains absolute paths / token counters / session logs)
+.wolf/hooks/_session.json
+.wolf/token-ledger.json
+.wolf/suggestions.json
+.wolf/designqc-report.json
+.wolf/cron-state.json
+.wolf/designqc-captures/

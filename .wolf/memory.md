@@ -194,3 +194,8 @@
 | 19:00 | Drag-and-drop file attach in LoadProjectDialog (per-row drop + dialog-wide drop auto-matched by name) | LoadProjectDialog.tsx | build green | ~2k |
 | 14:07 | Session end: 22 writes across 12 files (lucky-hatching-catmull.md, types.ts, pack.ts, generate.ts, RegionInspector.tsx) | 17 reads | ~27942 tok |
 | 14:10 | Created README.md | — | ~1620 |
+| 19:30 | Init git, push to GitHub main, add README + docs/screenshots/, enable Pages | README.md, docs/screenshots/, git | pushed; Actions deploy green; live at pshutov.github.io/errata-stickers-generator/ (JS+worker 200) | ~5k |
+| 14:13 | Session end: 23 writes across 13 files (lucky-hatching-catmull.md, types.ts, pack.ts, generate.ts, RegionInspector.tsx) | 17 reads | ~29678 tok |
+| 14:24 | Edited .claude/rules/openwolf.md | 1→4 lines | ~217 |
+| 14:24 | Edited .gitignore | expanded (+8 lines) | ~77 |
+| 14:25 | Edited .claude/rules/openwolf.md | inline fix | ~51 |

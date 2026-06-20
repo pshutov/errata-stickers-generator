@@ -9,6 +9,7 @@
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
 - Communicates in Russian, but the app UI must be **English only** (switched 2026-06-19; no i18n layer — plain English strings). Keep code identifiers/comments in English too.
 - Stack chosen: Vite + React + TS + Tailwind v4, fully client-side (no backend; PDFs stay in the browser).
+- **The repo is PUBLIC on GitHub and `.wolf/` is committed.** Never write secrets/credentials/PII or absolute home-directory paths into any `.wolf/` file; use repo-relative paths only. Machine-generated runtime state (`_session.json`, `token-ledger.json`, `suggestions.json`, `designqc-report.json`, `cron-state.json`, `designqc-captures/`) is gitignored — keep it that way. History is NOT rewritten (user chose "forward only").
 - Layout = free auto bin-packing (not fixed label grids). Sticker size defaults to original 1:1 with optional per-region scale. Print prep needed: inter-sticker gaps + bleed. Crop marks and per-region copy counts were explicitly deferred (extension points only).
 
 ## Key Learnings

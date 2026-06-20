@@ -13,3 +13,6 @@ globs: **/*
 - If you edit a file more than twice in a session, that likely indicates a bug — log it to .wolf/buglog.json
 - When the user asks to check/evaluate UI design: run `openwolf designqc` to capture screenshots, then read them from .wolf/designqc-captures/
 - When the user asks to change/pick/migrate UI framework: read .wolf/reframe-frameworks.md, ask decision questions, recommend a framework, then execute with the framework's prompt
+- PRIVACY: the .wolf/ directory is committed to a PUBLIC git repo. NEVER write secrets, credentials, API keys, tokens, .env contents, or personal data into any .wolf/ file (cerebrum.md, memory.md, anatomy.md, buglog.json, …).
+- In .wolf/ files always use repo-relative paths (e.g. `src/lib/pdf/load.ts`), NEVER absolute home-directory paths (those under the user's home folder) that leak the username/machine layout.
+- The machine-generated runtime-state files (.wolf/hooks/_session.json, .wolf/token-ledger.json, .wolf/suggestions.json, .wolf/designqc-report.json, .wolf/cron-state.json, .wolf/designqc-captures/) are gitignored on purpose — do not force-add them.

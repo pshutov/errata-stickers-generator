@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-20T11:10:31.909Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-20T11:25:19.220Z
 > Files: 42 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../../../../tmp/
@@ -14,7 +14,7 @@
 
 ## ./
 
-- `.gitignore` — Git ignore rules (~11 tok)
+- `.gitignore` — Git ignore rules (~77 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `index.html` — Errata Stickers Generator (~84 tok)
 - `package.json` — Node.js package manifest (~195 tok)
@@ -30,7 +30,7 @@
 
 ## .claude/rules/
 
-- `openwolf.md` (~313 tok)
+- `openwolf.md` (~479 tok)
 
 ## .github/workflows/
 
