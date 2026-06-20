@@ -7,6 +7,7 @@
 ## User Preferences
 
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
+- **NEVER `git commit` or `git push` without the user's explicit command** (corrected 2026-06-20). Edit files and stop; wait for an explicit "commit"/"push". A past blanket "push everything" does NOT authorize later commits — each one needs its own go-ahead.
 - Communicates in Russian, but the app UI must be **English only** (switched 2026-06-19; no i18n layer — plain English strings). Keep code identifiers/comments in English too.
 - Stack chosen: Vite + React + TS + Tailwind v4, fully client-side (no backend; PDFs stay in the browser).
 - **The repo is PUBLIC on GitHub and `.wolf/` is committed.** Never write secrets/credentials/PII or absolute home-directory paths into any `.wolf/` file; use repo-relative paths only. Machine-generated runtime state (`_session.json`, `token-ledger.json`, `suggestions.json`, `designqc-report.json`, `cron-state.json`, `designqc-captures/`) is gitignored — keep it that way. History is NOT rewritten (user chose "forward only").

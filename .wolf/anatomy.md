@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-06-20T11:32:18.252Z
-> Files: 42 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-06-20T11:47:27.366Z
+> Files: 44 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../../../../tmp/
 
@@ -11,6 +11,11 @@
 
 - `clever-drifting-hare.md` — План: Число повторов (copies) для региона (~802 tok)
 - `lucky-hatching-catmull.md` — Plan: Deploy to GitHub Pages (project page) (~1495 tok)
+
+## ../../../../../.claude/projects/-Users-pshutau-Documents-dev-projects-pets-errata-stickers-generator/memory/
+
+- `MEMORY.md` (~28 tok)
+- `no-git-without-command.md` (~221 tok)
 
 ## ./
 
