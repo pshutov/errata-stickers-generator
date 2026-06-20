@@ -1,0 +1,545 @@
+{
+  "version": 1,
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-06-19T05:00:00.000Z",
+      "error_message": "TS2344: Type '{ width; height; data }' does not satisfy constraint 'IRectangle' (missing x, y); Property 'rot'/'x'/'y' does not exist",
+      "file": "src/lib/packing/pack.ts",
+      "root_cause": "Parameterised MaxRectsPacker<{width,height,data}> and called addArray with bare objects; the generic must be the full Rectangle (needs x,y,rot), not the input shape.",
+      "fix": "Drop the explicit generic (default Rectangle) and feed items via packer.add(width, height, data) in a loop instead of addArray. bin.rects then carry x,y,rot,data.",
+      "tags": [
+        "maxrects-packer",
+        "typescript",
+        "generics",
+        "packing"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:00:00.000Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-06-19T05:00:00.000Z",
+      "error_message": "TS2307: Cannot find module 'pdfjs-dist/build/pdf.worker.min.mjs?url' or its corresponding type declarations",
+      "file": "src/lib/pdf/load.ts",
+      "root_cause": "Vite '?url' query imports have no TS type without vite/client types referenced.",
+      "fix": "Add src/vite-env.d.ts with /// <reference types=\"vite/client\" />. Worker path pdfjs-dist/build/pdf.worker.min.mjs?url exists in pdfjs-dist v4.10.",
+      "tags": [
+        "vite",
+        "pdfjs-dist",
+        "typescript",
+        "worker"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:00:00.000Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-06-19T05:30:00.000Z",
+      "error_message": "User: загрузил файл, нажал на страницу, ничего не появилось — страница не рендерится в PageViewer",
+      "file": "src/components/PageViewer.tsx",
+      "root_cause": "ResizeObserver effect ([] deps) ran once at mount while active was null, so the container ref was null and the effect returned early without observing. When a page was selected the effect never re-ran, cssWidth stayed 0, and the render effect bailed on `cssWidth === 0`. Canvas stayed blank.",
+      "fix": "Always mount the container div (placeholder rendered inside it, not instead of it) so the observer attaches immediately; update() sets width on mount. Also added a hint telling the user to drag a rectangle, and a 'Рендер страницы…' placeholder.",
+      "tags": [
+        "react",
+        "useEffect",
+        "ResizeObserver",
+        "pdfjs",
+        "render",
+        "conditional-mount"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:30:00.000Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-06-19T05:14:14.268Z",
+      "error_message": "CSS fix: dpr",
+      "file": "src/components/PageViewer.tsx",
+      "root_cause": "dpr: window.devicePixelRatio || 1, → window.devicePixelRatio || 1",
+      "fix": "Changed dpr: window.devicePixelRatio || 1, → window.devicePixelRatio || 1",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:14:14.268Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-06-19T05:27:33.636Z",
+      "error_message": "Type error",
+      "file": "src/lib/pdf/generate.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:27:33.636Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-06-19T05:28:22.531Z",
+      "error_message": "Incorrect value in code",
+      "file": "src/components/Uploader.tsx",
+      "root_cause": "Had `Не удалось открыть PDF: ${(e as Error).message}`",
+      "fix": "Changed to `Failed to open PDF: ${(e as Error).message}`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:28:22.531Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-06-19T05:28:32.241Z",
+      "error_message": "Wrong return value",
+      "file": "src/components/PageNavigator.tsx",
+      "root_cause": "Was returning: <p className=\"px-1 text-xs text-slate-500\">Докумен",
+      "fix": "Now returns: <p className=\"px-1 text-xs text-slate-500\">No docu",
+      "tags": [
+        "auto-detected",
+        "return-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:28:32.241Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-06-19T05:28:33.686Z",
+      "error_message": "Incorrect value in code",
+      "file": "src/components/PageNavigator.tsx",
+      "root_cause": "Had \"Удалить документ\"",
+      "fix": "Changed to \"Remove document\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:28:33.686Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-06-19T05:28:42.744Z",
+      "error_message": "Incorrect value in code",
+      "file": "src/components/PageViewer.tsx",
+      "root_cause": "Had `Ошибка рендера: ${(e as Error).message}`",
+      "fix": "Changed to `Render error: ${(e as Error).message}`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:28:42.744Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-06-19T05:28:46.540Z",
+      "error_message": "Wrong reference: div should be Rendering",
+      "file": "src/components/PageViewer.tsx",
+      "root_cause": "Used \"div\" instead of \"Rendering\"",
+      "fix": "Changed div → Rendering",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:28:46.540Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-06-19T05:28:52.793Z",
+      "error_message": "CSS fix: label",
+      "file": "src/components/RegionLayer.tsx",
+      "root_cause": "label: `Область ${regions.length + 1 → `Region ${regions.length + 1",
+      "fix": "Changed label: `Область ${regions.length + 1 → `Region ${regions.length + 1",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:28:52.793Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-06-19T05:29:01.875Z",
+      "error_message": "Wrong return value",
+      "file": "src/components/RegionList.tsx",
+      "root_cause": "Was returning: <p className=\"px-1 text-xs text-slate-500\">Областе",
+      "fix": "Now returns: <p className=\"px-1 text-xs text-slate-500\">No regi",
+      "tags": [
+        "auto-detected",
+        "return-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:29:01.875Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-06-19T05:29:04.054Z",
+      "error_message": "Incorrect value in code",
+      "file": "src/components/RegionList.tsx",
+      "root_cause": "Had `${docName(r.docId)} · стр. ${r.pageIndex + 1}`",
+      "fix": "Changed to `${docName(r.docId)} · p. ${r.pageIndex + 1}`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-06-19T05:29:08.731Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-06-19T05:30:15.537Z",
+      "error_message": "Incorrect value in code",
+      "file": "index.html",
+      "root_cause": "Had \"ru\"",
+      "fix": "Changed to \"en\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "html"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:30:15.537Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-06-19T05:51:45.609Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/components/RegionLayer.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T05:51:45.609Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-06-19T06:55:00.000Z",
+      "error_message": "User: во время выделения области не видно её — рамка не рисуется пока тянешь мышь/палец",
+      "file": "src/components/RegionLayer.tsx",
+      "root_cause": "При переписывании RegionLayer под выбор/move/resize потеряли отрисовку превью для interaction.kind === 'create'. Рендерились только committed-области и live-rect для move/resize (liveRectFor проверяет 'id' in interaction, а у 'create' id нет). Драг-рамку никто не рисовал.",
+      "fix": "Добавлен блок рендера превью при interaction.kind === 'create' (dashed sky рамка + бейдж размера W×H mm), плюс helpers pctStyle() и sizeLabel(). pointer-events-none, чтобы не мешать.",
+      "tags": [
+        "react",
+        "RegionLayer",
+        "drawing",
+        "preview",
+        "regression",
+        "create"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T06:55:00.000Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-06-19T06:54:17.055Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/App.tsx",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 9→6 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T06:54:17.055Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-06-19T14:15:19.377Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/components/ProjectControls.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T14:15:19.377Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-06-19T14:15:47.069Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/components/RegionInspector.tsx",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 16→24 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T14:15:47.069Z"
+    },
+    {
+      "id": "bug-img-raster",
+      "timestamp": "2026-06-19T08:40:00.000Z",
+      "error_message": "User: часть региона (картинки) не видна в скачанном PDF, в редакторе видна",
+      "file": "src/lib/pdf/generate.ts",
+      "root_cause": "pdf-lib embedPage не переносит корректно картинки этого PDF: DCTDecode images со SMask, вложенные в Form XObjects с transparency /Group (ICCBased cs). pdf.js рендерит верно, pdf-lib embedPage — нет.",
+      "fix": "Генерация переведена с pdf-lib embedPage на растеризацию региона через pdf.js (RENDER_DPI=300, прямой рендер региона через transform) + embedPng. WYSIWYG с редактором.",
+      "tags": [
+        "pdf-lib",
+        "pdfjs",
+        "embedPage",
+        "SMask",
+        "transparency-group",
+        "raster",
+        "generate"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T08:40:00.000Z"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-06-19T15:09:49.833Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/lib/pdf/generate.ts",
+      "root_cause": "13 lines replaced/restructured",
+      "fix": "Rewrote 63→98 lines (13 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T15:09:49.833Z"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-06-19T15:10:11.940Z",
+      "error_message": "CSS fix: variant",
+      "file": "src/components/ResultPreview.tsx",
+      "root_cause": "variant: PackVariant) => { → PackVariant, mode: RenderMode) => {",
+      "fix": "Changed variant: PackVariant) => { → PackVariant, mode: RenderMode) => {",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-06-19T15:10:27.245Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-06-19T15:11:43.766Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/components/RegionTree.tsx",
+      "root_cause": "10 lines replaced/restructured",
+      "fix": "Rewrote 18→8 lines (10 removed) | Also: confirming={confirm === `region:${r.id}`}; onAskDelete={() => setConfirm(`region:${r.id}`)} | Also: confirming,; onAskDelete, | Also: {confirming ? (; <ConfirmInline onYes={onConfirmDelete} onNo={onCan",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-06-19T15:12:29.127Z"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-06-19T15:12:04.004Z",
+      "error_message": "CSS fix: hover",
+      "file": "src/components/RegionTree.tsx",
+      "root_cause": "hover: text-slate-200\" title=\"Cancel\"> → bg-red-400\"",
+      "fix": "Changed hover: text-slate-200\" title=\"Cancel\"> → bg-red-400\"",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T15:12:04.004Z"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-06-19T15:12:15.529Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/components/RegionTree.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-19T15:12:15.529Z"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-06-20T10:49:26.871Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/lib/packing/pack.ts",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T10:49:26.871Z"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-06-20T10:49:38.876Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/lib/pdf/generate.ts",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T10:49:38.876Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-06-20T10:49:47.789Z",
+      "error_message": "Null/undefined access in ",
+      "file": "src/components/RegionInspector.tsx",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T10:49:47.789Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-06-20T10:50:05.201Z",
+      "error_message": "Missing await",
+      "file": "src/lib/project.ts",
+      "root_cause": "Async call without await — returned Promise instead of value",
+      "fix": "Added await to async call",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T10:50:05.201Z"
+    },
+    {
+      "id": "bug-030",
+      "timestamp": "2026-06-20T11:02:19.575Z",
+      "error_message": "Null/undefined access in ",
+      "file": "vite.config.ts",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T11:02:19.575Z"
+    },
+    {
+      "id": "bug-031",
+      "timestamp": "2026-06-20T11:02:56.478Z",
+      "error_message": "Type error",
+      "file": "vite.config.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T11:02:56.478Z"
+    },
+    {
+      "id": "bug-032",
+      "timestamp": "2026-06-20T11:06:14.731Z",
+      "error_message": "Wrong operator: !== should be &&",
+      "file": "src/components/LoadProjectDialog.tsx",
+      "root_cause": "Used \"!==\" instead of \"&&\"",
+      "fix": "Changed operator !== → &&",
+      "tags": [
+        "auto-detected",
+        "operator-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-06-20T11:06:14.731Z"
+    },
+    {
+      "id": "bug-033",
+      "timestamp": "2026-06-20T11:06:25.560Z",
+      "error_message": "Significant refactor of ",
+      "file": "src/components/LoadProjectDialog.tsx",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 13→27 lines (3 removed) | Also: className={`flex items-center gap-2 rounded border; r.status === 'mismatch' ? 'border-amber-500/60 bg-",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-06-20T11:06:32.565Z"
+    }
+  ]
+}
